@@ -415,8 +415,7 @@ Invokes `idris2-ipkg-mode-hook'."
   :syntax-table idris2-ipkg-syntax-table
   (set (make-local-variable 'font-lock-defaults)
        idris2-ipkg-font-lock-defaults)
-  (set (make-local-variable 'completion-at-point-functions)
-       '(idris2-ipkg-complete-keyword)))
+  (add-hook 'completion-at-point-functions #'idris2-ipkg-complete-keyword nil 'local))
 
 ;; Make filenames clickable
 (add-to-list 'compilation-error-regexp-alist-alist
