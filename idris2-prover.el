@@ -282,8 +282,7 @@ left margin."
     \\{idris2-prover-script-mode-map}
 Invokes `idris2-prover-script-mode-hook'."
   :group 'idris2-prover
-  (set (make-local-variable 'completion-at-point-functions)
-       '(idris2-prover-complete))
+  (add-hook 'completion-at-point-functions #'idris2-prover-complete nil 'local)
   (set (make-local-variable 'indent-tabs-mode) nil))
 
 (defun idris2-prover-script-buffer ()

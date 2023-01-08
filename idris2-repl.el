@@ -249,7 +249,7 @@ Invokes `idris2-repl-mode-hook'."
     (add-hook 'kill-buffer-hook
               'idris2-repl-safe-save-history nil t))
   (add-hook 'kill-emacs-hook 'idris2-repl-save-all-histories)
-  (set (make-local-variable 'completion-at-point-functions) '(idris2-repl-complete))
+  (add-hook 'completion-at-point-functions #'idris2-repl-complete nil 'local)
   (setq mode-name `("Idris2-REPL" (:eval (if idris2-rex-continuations "!" ""))))
   (set (make-local-variable 'prop-menu-item-functions)
        '(idris2-context-menu-items)))
